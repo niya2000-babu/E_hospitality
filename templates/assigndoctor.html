@@ -1,0 +1,82 @@
+{% extends 'adminpage.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Doctor</title>
+    <script type="text/javascript" src="{% static 'validation.js' %}"></script>
+    <script>
+        async function updateDoctors() {
+            const departmentSelect = document.getElementById('departmentSelect');
+            const doctorSelect = document.getElementById('doctorSelect');
+            const selectedDepartment = departmentSelect.value;
+
+            // Clear current doctor options
+            doctorSelect.innerHTML = '<option value="">Select doctor</option>';
+
+            if (selectedDepartment) {
+                const response = await fetch(`/get_doctors/${selectedDepartment}/`);
+                const doctors = await response.json();
+
+                doctors.forEach(doctor => {
+                    const option = document.createElement('option');
+                    option.value = doctor.id;
+                    option.textContent = doctor.Name;
+                    doctorSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+</head>
+
+<body>
+<form action="{% url 'assignduty' %}" method="post" name="frm">
+    {% csrf_token %}
+    <h1 align="center" style="color:gray;">Assign Doctor</h1>
+    <table border="1" align="center">
+        <tr>
+            <th>Name</th>
+            {% for i in keyy %}
+            <td><input type="text" value="{{ i.Name }}" name="name" /></td>
+        </tr>
+        <tr>
+            <th>Contact</th>
+            <td><input type="text" value="{{ i.Contact }}" name="contact" /></td>
+        </tr>
+         <tr>
+            <th>Email id</th>
+            <td><input type="text" value="{{ i.Email }}" name="email" /></td>
+        </tr>
+        <tr>
+            <th>Symptoms</th>
+            <td><input type="text" value="{{ i.Symptoms }}" name="symptoms" /></td>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td>
+                <select  name="ddldepartment" id="departmentSelect" onchange="updateDoctors()">
+                    <option value="">Select department</option>
+                    {% for de in key %}
+                        <option value="{{ de.Department }}">{{ de.Department }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Doctor</th>
+            <td>
+                <select name="ddldoctors" id="doctorSelect">
+                    <option value="">Select doctor</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Add"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

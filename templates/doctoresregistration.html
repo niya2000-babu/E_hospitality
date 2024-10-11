@@ -1,0 +1,158 @@
+<!--author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<html>
+<head>
+<title>dream homes</title>
+<!-- metatags-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Sports Club Membership Registration form a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+		        <script type="text/javascript" src="{% static 'validation.js' %}"></script>
+
+<link href="{% static 'regtemp/css/style.css' %}" rel="stylesheet" type="text/css" media="all"/><!--style_sheet-->
+<link href="//fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700" rel="stylesheet">
+<!--online_fonts-->
+<link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet"><!--online_fonts-->
+</head>
+<body>
+<form method="post" action="" enctype="multipart/form-data" name="frm">
+    {% csrf_token %}
+<h1><span>Doctor's</span> <span>Registration Form</span></a></h1>
+<div class="w3ls-main">
+<!--<h2>Engineer Registration Form</h2>-->
+<p></p>
+<div class="w3ls-form">
+<form action="#" method="post">
+<ul class="fields">
+<div class="Refer_w3l">
+<h3>Your details</h3>
+	<li>	
+		<label class="w3ls-opt">name :<span class="w3ls-star"> * </span></label>
+		<div class="w3ls-name">	
+			<input type="text" name="name"  placeholder="first name" required />
+		</div>
+	</li>
+	
+	<li>
+		<div class="mail">
+			<label class="w3ls-opt">e-mail :<span class="w3ls-star"> * </span></label>
+			<span class="w3ls-text w3ls-name">
+				<input type="email" name="email" placeholder="enter your e-mail" required=""/>
+			</span>
+		</div>
+	</li>
+	<li>
+		<label class="w3ls-opt">phone number :<span class="w3ls-star"> * </span></label>	
+			<span class="w3ls-text w3ls-name">
+<!--				<input type="text" name="phone" placeholder="phone number" required onchange="return fn_checkmobile(document.frm.phone);"/>-->
+								<input type="text" name="phone" placeholder="phone number" required />
+
+			</span>
+	</li>
+	<li>
+		<label class="w3ls-opt">Address: <span class="w3ls-star"> * </span> </label>
+		<div class="adderss">
+			<span class="text">
+				<input type="text" name="hname" placeholder="house name" >
+			</span>
+			<span class="text">
+				<input type="text" name="street" placeholder="street line2" >
+			</span>
+			<span class="text">
+				<input type="text" name="city" placeholder="city" required >
+				
+			</span>
+			<span class="text">
+				<input type="text" name="state" placeholder="state/province" >
+				
+			</span>
+			<span class="text">
+				<input type="text" name="pin" placeholder="postal/zipcode" required >
+			</span>
+			<span class="text">
+				<input type="text" name="country" placeholder="country" required >
+			</span>
+			</div>
+	</li>
+	<li>
+		<div >
+			<label class="w3ls-opt">Specialization in :<span class="w3ls-star"> * </span></label>
+			<span class="w3ls-text w3ls-name">
+			 <select name="ddlspecial" id="bankid" class="textbox">
+                          <option value="0">--select--</option>
+                          {% for i in dptdwn %}
+                          <option value="{{i.Department}}">{{i.Department}}</option>
+                          {% endfor %}
+                      </select>
+				</span>
+		</div>
+	</li>
+	<li>
+		<div class="uname">
+			<label class="w3ls-opt">username :<span class="w3ls-star"> * </span></label>
+			<span class="w3ls-text w3ls-name">
+				<input type="text" name="uname" placeholder="enter username" required />
+			</span>
+		</div>
+	</li>
+	<li>
+		<div class="pwd">
+			<label class="w3ls-opt">password :<span class="w3ls-star"> * </span></label>
+			<span class="w3ls-text w3ls-name">
+				<input type="text" name="pwd" placeholder="enter your password" required />
+			</span>
+		</div>
+	</li>
+
+
+
+	<div>
+						<div class="wthree-text">
+						<h4>Upload </h4>
+<table>
+	<tr>
+		<td><label class="w3ls-opt">Photo<span class="w3ls-star"></span></label></td>
+		<td><span class="text">
+								<input type="file" name="photo" placeholder="Photo" required="">
+								</span></td>
+	</tr>
+	<tr>
+		<td><label class="w3ls-opt">Qualification<span class="w3ls-star"></span></label></td><td><span class="text">
+
+								<input type="file" name="qual" placeholder="qualification" required="">
+		</span></td>
+	</tr>
+	<tr>
+		<td><label class="w3ls-opt">Experiance<span class="w3ls-star"></span></label></td><td><span class="text">
+								<input type="file" name="exp" placeholder="experiance" required="">
+								</span></td>
+	</tr>
+</table>
+
+
+
+
+
+</div>
+
+	</div>
+	<div class="Refer_w3l">
+
+
+<div class="clear"></div>
+	<div class="w3ls-btn">
+		<input type="submit" value="REGISTER">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'index' %}">Home</a>
+	</div>
+</form>
+</div>
+</div>
+<footer>&copy; 2024 Medino  Doctor's REgistration. All Rights Reserved | Design by <a></a></footer>
+</body>
+</html>

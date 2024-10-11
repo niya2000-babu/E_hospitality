@@ -1,0 +1,63 @@
+{% extends 'adminpage.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+</head>
+<body>
+
+<form>
+    <table border="1">
+        <tr>
+        <th>Id</th>
+        <th>Name</th>
+         <th>Email</th>
+         <th>Date</th>
+         <th>Symtoms</th>
+         <th>Contact Pic</th>
+         <th>Status</th>
+            <th></th>
+                        <th></th>
+
+
+        </tr>
+
+        <tr>
+        <td>{{key.id}}</td>
+        <td>{{key.Name}}</td>
+        <td>{{key.Email}}</td>
+        <td>{{key.Date}}</td>
+        <td>{{key.Symptoms}}</td>
+        <td>{{key.Contact}}</td>
+
+
+        <td>{{key.status}}</td>
+            <td><a href="{% url 'approveappointments' key.id %}" style="color:blue">Approve</a> </td><br>
+            <td><a href="{% url 'get_doctors1' %}" style="color:blue">Assign Doctor</a> </td><br>
+
+
+        </tr>
+
+
+
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

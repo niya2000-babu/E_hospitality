@@ -1,0 +1,29 @@
+{% extends 'adminpage.html' %}
+{% block content %}
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    	        <script type="text/javascript" src="{% static 'validation.js' %}"></script>
+
+</head>
+
+<body>
+<form action="{% url 'adddptr' %}" method="post" name="frm">
+    {% csrf_token %}
+    <h1 align="center" style="color:gray;">Add Department</h1>
+    <table border="1" align="center">
+        <tr>
+            <td>Department </td><br/>
+            <td><input type="text" name="dptr" /><br></td>
+            <td><input type="submit" value="Add"> </td>
+
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
+{% endblock %}

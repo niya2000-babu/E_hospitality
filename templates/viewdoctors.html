@@ -1,0 +1,51 @@
+{% extends 'adminpage.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+</head>
+<body>
+
+<form>
+    <table border="1">
+        <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email Id</th>
+        <th>Specialization</th>
+        </tr>
+
+        {% for i in key %}
+        <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.Name}}</td>
+        <td>{{i.Email}}</td>
+        <td>{{i.Specialization}}</td>
+        <td><a href="{% url 'doctordtls' id=i.id %}" style="color:blue">Details</a> </td>
+
+        </tr>
+        {% endfor %}
+
+
+
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}
